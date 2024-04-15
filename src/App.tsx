@@ -1,16 +1,27 @@
 import "./App.css";
-import { useCounter } from "./hooks/useCounter";
+import { Counter } from "./components/Counter/Counter";
 
 function App() {
-  // exempel på hur en hook kan användas => const [x, setX] = useState(0);
-  const [x, incrementX] = useCounter();
-
-  // incrementX();
   return (
     <>
-      <h1>Hook demo</h1>
-      <p>{x}</p>
-      <button onClick={incrementX}>Increment</button>
+      <Counter
+        minimumValue={-100}
+        maximumValue={100}
+        initialValue={0}
+        stepValue={10}
+      />
+      <Counter
+        minimumValue={-50}
+        maximumValue={50}
+        initialValue={10}
+        stepValue={5}
+      />
+      <Counter
+        minimumValue={-25}
+        maximumValue={25}
+        initialValue={5}
+        stepValue={2}
+      />
     </>
   );
 }
