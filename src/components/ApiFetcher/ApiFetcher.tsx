@@ -1,35 +1,20 @@
-import { useEffect, useState } from "react";
+import { useFetch } from "../../hooks/useFetch";
 
-type DataInterface = {
-  activity: string;
-  price: number;
-};
-
-export const ApiFetcher = () => {
-  const [data, setData] = useState<DataInterface[] | null>(null);
-
-  const API_URL = "http://www.boredapi.com/api/activity/";
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch(API_URL);
-
-      const jsonData = await response.json();
-      setData([jsonData]);
-      // 'console.log(jsonData);'
-    };
-
-    fetchData();
-  }, [API_URL]);
+export const ApiFetcher = ({ API_URL }: { API_URL: string }) => {
+  const { data } = useFetch(API_URL);
 
   return (
-    <ul>
-      {data &&
-        data.map((item, i) => (
-          <li key={i}>
-            {item.activity}, {item.price}
-          </li>
-        ))}
-    </ul>
+    <>
+      <div>{JSON.stringify(data)}</div>
+      <ul>
+        {data &&
+          data.map((item, i: number) => (
+            <li key={i}>
+              Activity: {item.activity} <br />
+              Price: {item.price}
+            </li>
+          ))}
+      </ul>
+    </>
   );
 };

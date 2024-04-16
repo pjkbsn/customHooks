@@ -23,7 +23,7 @@ function App() {
         initialValue={5}
         stepValue={2}
       />
-      <ApiFetcher />
+      <ApiFetcher API_URL="http://www.boredapi.com/api/activity/" />
     </>
   );
 }
