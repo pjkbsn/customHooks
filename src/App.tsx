@@ -1,5 +1,6 @@
 import "./App.css";
 import { Counter } from "./components/Counter/Counter";
+import { ApiFetcher } from "./components/ApiFetcher/ApiFetcher";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         initialValue={5}
         stepValue={2}
       />
+      <ApiFetcher />
     </>
   );
 }
