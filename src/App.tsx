@@ -1,6 +1,7 @@
 import "./App.css";
 import { Counter } from "./components/Counter/Counter";
 import { ApiFetcher } from "./components/ApiFetcher/ApiFetcher";
+import { Toggle } from "./components/Toggle/Toggle";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         stepValue={2}
       />
       <ApiFetcher API_URL="http://www.boredapi.com/api/activity/" />
+      <Toggle positive="True" negative="False" />
     </>
   );
 }
