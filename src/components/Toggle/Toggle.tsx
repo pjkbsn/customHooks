@@ -3,10 +3,11 @@ import { useToggle } from "../../hooks/useToggle";
 type ToggleProps = {
   positive: string;
   negative: string;
+  startValue: boolean;
 };
 
-export const Toggle = ({ positive, negative }: ToggleProps) => {
-  const { value, toggleValue } = useToggle(true);
+export const Toggle = ({ positive, negative, startValue }: ToggleProps) => {
+  const { value, toggleValue } = useToggle(startValue);
 
   return (
     <>
